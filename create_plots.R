@@ -33,3 +33,21 @@ with(twodays, lines(Pstd, Sub_metering_2, col="red"))
 with(twodays, lines(Pstd, Sub_metering_3, col="blue"))
 with(twodays, legend("topright",col=c("black","red","blue"), lty = c(1,1,1), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3")))
 dev.off()
+
+# create the fourth graph
+png("plot4.png")
+par(mfrow=c(2,2))
+
+with(twodays, plot(Pstd,Global_active_power, type="l", ylab = "Global Active Power (kilowatts)"))
+
+with(twodays, plot(Pstd,Voltage, type="l", xlab = "datetime"))
+
+with(twodays, plot(Pstd,Sub_metering_1, type="n", ylab = "energy sub metering"))
+with(twodays, lines(Pstd, Sub_metering_1))
+with(twodays, lines(Pstd, Sub_metering_2, col="red"))
+with(twodays, lines(Pstd, Sub_metering_3, col="blue"))
+with(twodays, legend("topright",col=c("black","red","blue"), lty = c(1,1,1), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3")))
+
+with(twodays, plot(Pstd,Global_reactive_power, type="l", xlab = "datetime"))
+
+dev.off()
