@@ -18,3 +18,9 @@ png("plot1.png")
 #Set the color to red, get the titles of each section right, plug in the variable and voila, done
 with(twodays, hist(Global_active_power,main="Global Active Power",xlab="Global Active Power (kilowatts)", col="red"))
 dev.off()
+
+# create the second graph
+png("plot2.png")
+# Main trouble here was getting the combined date variable before. Everything else is easy
+with(twodays, plot(Pstd,Global_active_power, type="l", ylab = "Global Active Power (kilowatts)"))
+dev.off()
