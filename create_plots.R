@@ -24,3 +24,12 @@ png("plot2.png")
 # Main trouble here was getting the combined date variable before. Everything else is easy
 with(twodays, plot(Pstd,Global_active_power, type="l", ylab = "Global Active Power (kilowatts)"))
 dev.off()
+
+# create the third graph
+png("plot3.png")
+with(twodays, plot(Pstd,Sub_metering_1, type="n", ylab = "energy sub metering"))
+with(twodays, lines(Pstd, Sub_metering_1))
+with(twodays, lines(Pstd, Sub_metering_2, col="red"))
+with(twodays, lines(Pstd, Sub_metering_3, col="blue"))
+with(twodays, legend("topright",col=c("black","red","blue"), lty = c(1,1,1), legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3")))
+dev.off()
